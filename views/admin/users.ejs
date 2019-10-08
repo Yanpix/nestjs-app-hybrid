@@ -1,0 +1,84 @@
+<% include ../global-parts/header %>
+
+<body>
+    <% include ./partials/left-menu %>
+    <!-- Right Panel -->
+    <div id="right-panel" class="right-panel">
+        <% include ./partials/top-panel %>
+        <!-- Content -->
+        <div class="content">
+
+            <div class="animated fadeIn">
+
+                <div id="dashboard-users">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="box-title">Application users</h4>
+                                </div>
+                                <div class="card-body--">
+                                    <div class="table-stats order-table ov-h">
+                                        <table class="table ">
+                                            <thead>
+                                                <tr>
+                                                    <th class="serial">#</th>
+                                                    <th class="avatar">AVATAR</th>
+                                                    <th>NAME</th>
+                                                    <th>EMAIL</th>
+                                                    <th>ROLES</th>
+                                                    <th>STATUS</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% users.forEach( (user, index) => { %>
+                                                    <tr>
+                                                        <td class="serial"><%= index + 1 %></td>
+                                                        <td class="avatar">
+                                                            <div class="round-img">
+                                                                <a href="#"><img class="rounded-circle" src="<%= user.image %>" alt=""></a>
+                                                            </div>
+                                                        </td>
+                                                        <td> <span class="name"><%= user.fullname %></span> </td>
+                                                        <td> <span><%= user.email %></span> </td>
+                                                        <td>
+                                                            <% let roles = JSON.parse(user.roles);
+                                                                roles.forEach((role) => { %>
+                                                                <%= role %> 
+                                                            <% }); %>
+                                                        </td>
+                                                        <td>
+                                                            <button 
+                                                                type="button" 
+                                                                @click="activateDisable($event)"
+                                                                data-uuid="<%= user.id %>" 
+                                                                data-status="<%= user.is_active %>" 
+                                                                class="btn <%=(user.is_active==1)?'btn-success':'btn-danger'%>" <%=(roles.includes('admin'))?'disabled':''%> ><%=(user.is_active==1)?'Active':'Disabled' %>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                <% }); %>
+                                            </tbody>
+                                        </table>
+                                    </div> <!-- /.table-stats -->
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.content -->
+        <div class="clearfix"></div>
+        <% include ./partials/footer %>
+    </div>
+
+<% include ../global-parts/scripts %>
+
+<!--  Page scripts -->
+<script src="/protected/js/custom/dashboard/users.js"></script>
+
+</body>
+</html>

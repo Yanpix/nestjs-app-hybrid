@@ -1,0 +1,9 @@
+export { ActivityRepository } from './activity.repository';
+export { ActivateTokenRepository } from './activate-token.repository';
+export { InsurancePolicyRepository } from './insurance-policy.repository';
+export { InvoiceRepository } from './invoice.repository';
+export { PersonRepository } from './person.repository';
+export { PaymentsRepository } from './payment.repository';
+export { ClaimRepository } from './claim.repository';
+export { ClaimAttachmentRepository } from './claim-attachment.repository';
+export { ClaimMessageRepository } from './claim-message.repository';

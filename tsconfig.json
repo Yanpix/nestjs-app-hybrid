@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "target": "es6",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "paths": {
+        "@guards": ["shared/guards/index"],
+        "@filters": ["shared/filters/index"],
+        "@interceptors": ["shared/interceptors/index"],
+        "@middlewares": ["shared/middlewares/index"],
+        "@decorators": ["shared/decorators/index"],
+        "@exceptions": ["shared/exceptions/index"],
+        "@pipes": ["shared/pipes/index"],
+        "@constants": ["shared/constants/index"],
+        "@helpers": ["shared/helpers/index"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
